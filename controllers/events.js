@@ -29,8 +29,15 @@ export async function getAllBrevets(req, res, next) {
           if (!marker) {
             var events = [];
             events.push(feature.properties);
+
+            var location = {
+              city: feature.properties.ville,
+              department: feature.properties.departement,
+              coordinates: feature.geometry.coordinates
+            }
+
             markers.push({
-              coordinates: feature.geometry.coordinates,
+              location: location,
               events: events,
             });
           } else {
