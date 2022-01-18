@@ -23,7 +23,7 @@ export async function getAllBrevets(req, res, next) {
         )
         .map((feature) => {
           var marker = markers.find(
-            (marker) => JSON.stringify(marker.coordinates) === JSON.stringify(feature.geometry.coordinates)
+            (marker) => JSON.stringify(marker.location.coordinates) === JSON.stringify(feature.geometry.coordinates)
           );
 
           if (!marker) {
